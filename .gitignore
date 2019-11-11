@@ -1,5 +1,8 @@
 .env
 .DS_Store
 /node_modules
+2019/
+2020/
+2021/
 recipients.ts
-recipientsTest.ts
+emailTemplate.mjml

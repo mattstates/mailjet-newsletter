@@ -2,9 +2,11 @@
   "name": "mailjet-newsletter",
   "version": "1.0.0",
   "description": "MailJet Setup for Sending Weekly Newsletter",
-  "main": "index.ts",
+  "main": "./src/index.ts",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "echo \"Warn: Please us explicit script names EX: npm run start:dev || npm run start:prod\"",
+    "start:dev": "NODE_ENV=dev ts-node ./src/index.ts",
+    "start:prod": "NODE_ENV=prod ts-node ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
