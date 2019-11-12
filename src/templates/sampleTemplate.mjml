@@ -1,0 +1,284 @@
+<mjml owa="desktop" version="4.5.1">
+  <mj-head>
+    <mj-preview>
+      {{var:subject}} - {{var:quote.quote}}
+    </mj-preview>
+  </mj-head>
+
+  <mj-body background-color="#F4F4F4" color="#55575d" font-family="Arial, sans-serif">
+
+    <!-- Color Bar -->
+    <mj-section background-repeat="repeat" background-size="auto" padding-bottom="0px" padding-top="0px" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-spacer container-background-color="#f89d1e" height="50px"></mj-spacer>
+      </mj-column>
+    </mj-section>
+
+    <!-- Subject & Quote -->
+    <mj-section background-color="#ffffff" background-repeat="repeat" background-size="auto" padding="20px 0px 0px 0px" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h1 style="padding-top:12px"><span style="font-size:32px">{{var:subject}}</span></h1>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <p style="margin: 10px 0; text-align: right;"><span style="font-size:12px">{{var:date}}</span></p>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <p style="margin: 10px 0;"><i style="font-style:italic"><span style="font-size:18px">"<i>{{var:quote.quote}}</i>" - {{var:quote.author}}</span></i></p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Announcements -->
+    <mj-raw>{% if var:hasAnnouncements == true %} </mj-raw>
+    <mj-section background-color="#ffffff" background-repeat="repeat" background-size="auto" border="0px solid #ffffff" padding-left="0px" padding-right="0px" padding="20px 0px 0px 0px" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h2 style="padding-top:12px"><span style="font-size:24px;">Announcements</span></h2>
+        </mj-text>
+
+        <mj-raw> {% for announcement in var:announcements %} </mj-raw>
+
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <p style="margin: 10px 0;"><span style="font-size:18px;">{{announcement}}</span></p>
+        </mj-text>
+        <mj-raw> {% endfor%} </mj-raw>
+
+      </mj-column>
+    </mj-section>
+    <mj-section background-repeat="repeat" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-divider border-color="#E6E6E6" border-style="solid" border-width="2px" padding="10px 25px" width="100%"></mj-divider>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+
+    <!-- Recognition -->
+    <mj-raw>{% if var:hasRecognitions == true %} </mj-raw>
+
+    <mj-section background-color="#ffffff" background-repeat="repeat" border="0px double #ffffff" padding-left="0px" padding-right="0px" padding="20px 0px 0px 0px" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h2 style="padding-top:12px"><span style="font-size:24px">Recognition</span></h2>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <ul>
+            <mj-raw> {% for rec in var:recognitions %} </mj-raw>
+
+            <li style="color: rgb(102, 102, 102); font-size: 18px; line-height: 27px;">{{rec.thanks}} - <i>{{rec.person}}</i></li>
+
+            <mj-raw> {% endfor%} </mj-raw>
+          </ul>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-repeat="repeat" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-divider border-color="#E6E6E6" border-style="solid" border-width="2px" padding="10px 25px" width="100%"></mj-divider>
+      </mj-column>
+    </mj-section>
+
+    <mj-raw> {% endif %} </mj-raw>
+
+    <!-- Upcoming Releases and Upcoming Events -->
+
+    <mj-raw>{% if var:hasUpcomingReleases == true or var:hasUpcomingEvents == true %} </mj-raw>
+    <mj-section background-color="#ffffff" background-repeat="repeat" background-size="auto" padding="0px 0px 20px 0px" text-align="center" vertical-align="top">
+
+      <!-- Upcoming Releases -->
+      <mj-raw>{% if var:hasUpcomingReleases == true %} </mj-raw>
+
+      <mj-column>
+        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="24px" padding-bottom="0px" padding-top="0px" padding="10px 25px">
+          <h2 style="padding-top:12px">Upcoming Releases</h2>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="20px" padding="10px 25px">
+          <ul>
+            <mj-raw> {% for release in var:upcomingReleases %} </mj-raw>
+            <li style="color:#666666; font-size:18px; line-height:22px; text-align:left"><span style="font-size:14px;">{{release.release}} - <i>{{release.date}}</i></span></li>
+            <mj-raw> {% endfor%} </mj-raw>
+          </ul>
+        </mj-text>
+      </mj-column>
+      <mj-raw> {% endif %} </mj-raw>
+
+      <!-- Upcoming Events -->
+      <mj-raw>{% if var:hasUpcomingEvents == true %} </mj-raw>
+      <mj-column>
+        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="24px" padding-bottom="0px" padding-top="0px" padding="10px 25px">
+          <h2 style="padding-top:12px">Upcoming Events</h2>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="20px" padding="10px 25px">
+          <ul>
+            <mj-raw> {% for event in var:upcomingEvents %} </mj-raw>
+            <li style="color:#666666; font-size:18px; line-height:22px; text-align:left"><span style="font-size:14px;">{{event.event}} - <i>{{event.date}}</i></span></li>
+            <mj-raw> {% endfor%} </mj-raw>
+          </ul>
+        </mj-text>
+      </mj-column>
+      <mj-raw> {% endif %} </mj-raw>
+
+    </mj-section>
+    <mj-section background-color="#ffffff" background-repeat="repeat" background-size="auto" padding="0px 0px 20px 0px" text-align="center" vertical-align="top">
+
+      <!-- Upcoming Releases II -->
+      <mj-raw>{% if var:hasUpcomingReleases == true %} </mj-raw>
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="20px" padding="10px 25px">
+          <p style="margin: 10px 0;"><a target="_blank" style="color:#539be2; font-size:14px; text-decoration:none" href="https://example.com/Product+Roadmap"><span style="font-size:14px">Product Roadmap</span></a></p>
+        </mj-text>
+      </mj-column>
+      <mj-raw> {% endif %} </mj-raw>
+
+      <!-- Upcoming Events II -->
+      <mj-raw>{% if var:hasUpcomingEvents == true %} </mj-raw>
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="20px" padding="10px 25px">
+          <p style="margin: 10px 0;"><a target="_blank" style="color:#539be2; font-size:14px; text-decoration:none" href="https://example.com/calendars"><span style="font-size:14px">Team Vacation Calendar</span></a></p>
+        </mj-text>
+      </mj-column>
+      <mj-raw> {% endif %} </mj-raw>
+
+    </mj-section>
+    <mj-section background-repeat="repeat" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-divider border-color="#E6E6E6" border-style="solid" border-width="2px" padding="10px 25px" width="100%"></mj-divider>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+
+    <!-- Links -->
+    <mj-raw>{% if var:hasTechLinks == true or var:hasNotTechLinks == true %} </mj-raw>
+
+    <mj-section background-color="#ffffff" background-repeat="repeat" background-size="auto" padding="20px 0px 0px 0px" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h2 style="padding-top:12px"><span style="font-size:24px">Links</span></h2>
+        </mj-text>
+
+        <mj-raw>{% if var:hasTechLinks == true %} </mj-raw>
+
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h3 style="text-align:center;"><b>Tech</b></h3>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <ul>
+
+            <mj-raw> {% for link in var:techLinks %} </mj-raw>
+            <li style="color:#666666; font-size:18px; line-height:27px">
+              <p style="line-height: 20px; margin: 10px 0;"><span style="font-size:18px;">{{link.title}} - </span><a target="_blank" style="color: rgb(83, 155, 226); text-decoration: none; font-size: 18px;" href="{{link.URL}}"><span style="font-size:18px;">{{link.URL}}</span></a><span style="font-size:18px;"> - <i>{{link.person}}</i></span></p>
+            </li>
+            <mj-raw> {% endfor%} </mj-raw>
+          </ul>
+        </mj-text>
+        <mj-raw> {% endif %} </mj-raw>
+        <mj-raw>{% if var:hasNotTechLinks == true %} </mj-raw>
+
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h3 style="text-align:center"><b>!Tech</b></h3>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <ul>
+            <mj-raw> {% for link in var:notTechLinks %} </mj-raw>
+            <li style="color:#666666; font-size:18px; line-height:27px">
+              <p style="line-height: 20px; margin: 10px 0;"><span style="font-size:18px;">{{link.title}} - </span><a target="_blank" style="color: rgb(83, 155, 226); text-decoration: none; font-size: 18px;" href="{{link.URL}}"><span style="font-size:18px;">{{link.URL}}</span></a><span style="font-size:18px;"> - <i>{{link.person}}</i></span></p>
+            </li>
+            <mj-raw> {% endfor%} </mj-raw>
+          </ul>
+        </mj-text>
+        <mj-raw> {% endif %} </mj-raw>
+      </mj-column>
+    </mj-section>
+    <mj-section background-repeat="repeat" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-divider border-color="#E6E6E6" border-style="solid" border-width="2px" padding="10px 25px" width="100%"></mj-divider>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+
+    <!-- DEVELOPER TIPS -->
+
+    <mj-section background-color="#ffffff" background-repeat="repeat" background-size="auto" padding="20px 0px 0px 0px" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h2 style="padding-top:12px"><span style="font-size:24px;">💡 Developer Tips 💡</span></h2>
+        </mj-text>
+
+        <mj-raw>{% if var:hasDevTips == true %} </mj-raw>
+
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <p style="margin: 10px 0;"><span style="font-size:18px;">Something useful goes here...</span></p>
+        </mj-text>
+
+        <mj-raw> {% elseif var:hasDevTips == false %} </mj-raw>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <p style="margin: 10px 0;"><span style="font-size:18px;">No tips this week 😢</span></p>
+        </mj-text>
+        <mj-raw> {% endif %} </mj-raw>
+      </mj-column>
+    </mj-section>
+
+    <!-- FUN STUFF I -->
+
+    <mj-section background-repeat="repeat" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-divider border-color="#E6E6E6" border-style="solid" border-width="2px" padding="10px 25px" width="100%"></mj-divider>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffc64b" background-repeat="repeat" border="0px solid #ffffff" full-width="full-width" padding-left="0px" padding-right="0px" padding="20px 0px 0px 0px" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h2 style="padding-top:12px;text-align:center;"><span style="font-size:24px">Fun Stuff</span></h2>
+        </mj-text>
+        <mj-spacer height="30px"></mj-spacer>
+      </mj-column>
+    </mj-section>
+    <mj-section background-repeat="repeat" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-divider border-color="#E6E6E6" border-style="solid" border-width="2px" padding="10px 25px" width="100%"></mj-divider>
+      </mj-column>
+    </mj-section>
+
+    <!-- Open Positions -->
+    <mj-raw>{% if var:hasOpenPositions == true %} </mj-raw>
+
+    <mj-section background-color="#ffffff" background-repeat="repeat" background-size="auto" padding="20px 0px 0px 0px" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="0px 25px 0px 25px">
+          <h2 style="padding-top:12px;text-align:left;"><span style="font-size:24px">Current Open Positions</span></h2>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <ul>
+            <mj-raw> {% for position in var:openPositions %} </mj-raw>
+            <li style="color:#666666; font-size:18px; line-height:27px; text-align:left">{{position}}</li>
+            <mj-raw> {% endfor%} </mj-raw>
+          </ul>
+        </mj-text>
+        <mj-text align="left" color="#55575d" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-left="25px" padding-right="25px" padding-top="0px" padding="0px 25px 0px 25px">
+          <p style="color: #666666; font-size: 18px; line-height: 27px; text-align: left; margin: 10px 0;">{{var:incentive}}</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-raw> {% endif %} </mj-raw>
+
+    <!-- FOOTER -->
+    <mj-section background-repeat="repeat" padding="20px 0" text-align="center" vertical-align="top">
+      <mj-column>
+        <mj-text align="left" color="#000000" font-family="Arial, sans-serif" font-size="13px" letter-spacing="normal" line-height="24px" padding-bottom="0px" padding-top="0px" padding="10px 25px">
+          <p style="margin: 10px 0; text-align: center;"><span style="font-family:Arial,sans-serif"><span style="font-size:20px">Have an idea for the newsletter? <a target="_blank" style="color:#3d85c6; text-decoration:none" href="mailto:test@example.com?subject=Newsletter%20Ideas">Click Here</a></span></span></p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-repeat="repeat" padding="20px 0px 20px 0px" text-align="center" vertical-align="top">
+      <mj-column padding="0">
+        <mj-text align="center" color="#000000" font-family="Arial, sans-serif" font-size="11px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="10px 25px">
+          <p style="margin: 10px 0;"><span style="font-size:8px;">This e-mail has been sent to [[EMAIL_TO]], </span><a target="_blank" style="color: inherit; text-decoration: none; font-size: 8px;" href="[[UNSUB_LINK_EN]]"><span style="font-size:8px;">click here to unsubscribe</span></a><span style="font-size:8px;">.</span></p>
+        </mj-text>
+        <mj-text align="center" color="#000000" font-family="Arial, sans-serif" font-size="11px" letter-spacing="normal" line-height="22px" padding-bottom="0px" padding-top="0px" padding="10px 25px">
+          <p style="margin: 10px 0;">USA</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+  </mj-body>
+</mjml>

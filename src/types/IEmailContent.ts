@@ -26,6 +26,7 @@ export interface IEmailContent {
     notTechLinks: ILink[];
     hasNotTechLinks?: boolean;
     openPositions: string[];
+    incentive: string;
     hasOpenPositions?: boolean;
     hasDevTips: boolean;
 }

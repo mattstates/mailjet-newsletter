@@ -54,6 +54,7 @@ const emailContent: IEmailContent = {
         }
     ],
     openPositions: ['Back End Architect'],
+    incentive: 'Refer a friend - get a bonus!',
     hasDevTips: false
 };
 

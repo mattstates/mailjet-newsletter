@@ -8,7 +8,12 @@ import { IEmailContent } from './types/IEmailContent';
 
 const isProd = (process.env.NODE_ENV || 'dev') === 'prod';
 
-const EMAIL_TEMPLATE = fs.readFileSync(path.dirname(__dirname) + '/src/templates/emailTemplate.mjml', 'utf8')
+let EMAIL_TEMPLATE: any;
+try {
+    EMAIL_TEMPLATE = fs.readFileSync(path.dirname(__dirname) + '/src/templates/emailTemplate.html', 'utf8');
+} catch (_err) {
+    throw new Error('Error parsing the mjml template.');
+}
 
 const CAMPAIGN_NAME: string = isProd
     ? (process.env.MAIL_JET_CAMPAIGN_NAME as string)
