@@ -21,7 +21,7 @@ const CAMPAIGN_NAME: string = isProd
 
 // Not sure why .default is needed here.
 const EMAIL_CONTENT: IEmailContent = (isProd
-    ? require(process.env.EMAIL_CONTENT_PATH as string)
+    ? require(process.env.EMAIL_CONTENT_PATH as string).default
     : require('./emailContent/emailContentDefault')).default;
 
 const EMAIL_RECIPIENTS: IRecipient[] = isProd
