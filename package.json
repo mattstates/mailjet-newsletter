@@ -16,7 +16,7 @@
   "dependencies": {
     "date-fns": "^2.7.0",
     "dotenv": "^8.2.0",
-    "node-mailjet": "^3.3.1"
+    "node-mailjet": "^3.4.1"
   },
   "devDependencies": {
     "@types/date-fns": "^2.6.0",
